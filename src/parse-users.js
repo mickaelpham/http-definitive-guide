@@ -1,8 +1,8 @@
 const VALID_USER_ENV_LENGTH = 2
 
 /**
- * Return an object of { [username]: password } tuples or
- * an empty array if anything went awry.
+ * Return an object of { [username]: password } or an
+ * empty object if anything went awry.
  */
 export function parseUsers(data) {
   if (!data)
