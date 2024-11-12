@@ -1,0 +1,68 @@
+doctype html
+html(lang="en-US")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title HTTP: The Definitive Guide
+    link(rel="stylesheet", href="styles.css")
+  body
+    .container
+      h2 Hello!
+      
+      if session.name
+        p Hello #{session.name}! Welcome back!
+
+        form(action="/name", method="post")
+          input(type="text", name="name", id="name" value=session.name)
+          |#{' '}
+          input(type="submit", value="change my name")
+
+      else
+        p Tell me your name and I&rsquo;ll remember you next time.
+
+        form(action="/name", method="post")
+          label(for="name") My name is#{' '}
+          input(type="text", name="name", id="name")
+          |#{' '}
+          input(type="submit", value="remember me")
+
+
+      h2 Request headers
+
+      table
+        thead
+          tr
+            th Header
+            th Value
+        tbody
+          each value, header in headers
+            tr
+              td= header
+              td= value
+
+      h2 Cookies
+
+      table
+        thead
+          tr
+            th Cookie
+            th Value
+        tbody
+          each value, cookie in cookies
+            tr
+              td= cookie
+              td= value
+      
+      h2 Session
+
+      table
+        thead
+          tr
+            th Key
+            th Value
+        tbody
+          each value, key in session
+            tr
+              td= key
+              td= value
+
