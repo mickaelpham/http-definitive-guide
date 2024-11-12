@@ -12,7 +12,6 @@ app.use(pinoHttp({ logger }))
 app.use(expressBasicAuth({
   users: parseUsers(process.env.REALM_USERS),
   challenge: true,
-},
-))
+}))
 
 app.use(express.static('public'))
